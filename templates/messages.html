@@ -27,68 +27,75 @@
 
 <!-- Переключение языка -->
 <div style="display: flex; justify-content: space-between; align-items: center; margin: 10px 0;">
-  <h2 style="margin: 0;">{{ tr['title'] }}</h2>
+    <h2 style="margin: 0;">{{ tr['title'] }}</h2>
 
-  <form id="langForm" method="get" style="margin: 0;">
-    <input type="hidden" name="group" value="{{ selected_group or '' }}">
-    <select name="lang" onchange="document.getElementById('langForm').submit()"
-        style="border: none; outline: none; background: transparent; font-size: 1rem; cursor: pointer;">
-  <option value="ru" {% if lang == 'ru' %}selected{% endif %}>Ru</option>
-  <option value="en" {% if lang == 'en' %}selected{% endif %}>En</option>
-</select>
+    <form id="langForm" method="get" style="margin: 0;">
+        <input type="hidden" name="group" value="{{ selected_group or '' }}">
+        <select name="lang" onchange="document.getElementById('langForm').submit()"
+                style="border: none; outline: none; background: transparent; font-size: 1rem; cursor: pointer;">
+            <option value="ru" {% if lang==
+            'ru' %}selected{% endif %}>Ru</option>
+            <option value="en" {% if lang==
+            'en' %}selected{% endif %}>En</option>
+        </select>
 
-  </form>
+    </form>
 </div>
 
 
-
-
-
-
-<form method="get" style="margin-bottom: 15px;">
+<form method="get" style="margin-bottom: 15px; display: flex; align-items: center; gap: 15px;">
     <input type="hidden" name="lang" value="{{ lang }}">
-    <label for="group">{{ tr['filter_label'] }}</label>
-    <select name="group" id="group" onchange="this.form.submit()">
+
+    <label for="group" style="margin: 0;">{{ tr['filter_label'] }}</label>
+
+    <select name="group" id="group" onchange="this.form.submit()" style="padding: 4px;">
         <option value="">{{ tr['all_groups'] }}</option>
         {% for group in groups %}
             <option value="{{ group }}" {% if group == selected_group %}selected{% endif %}>{{ group }}</option>
         {% endfor %}
     </select>
+
+<!-- Кнопки Скачать CSV и Excel -->
+
+    <a href="{{ url_for('export_csv', lang=lang, group=selected_group) }}" class="download-btn">Скачать CSV</a>
+    <a href="{{ url_for('export_excel', lang=lang, group=selected_group) }}" class="download-btn">Скачать Excel</a>
 </form>
+
 
 
 <table>
     <thead>
-        <tr>
-            <th>{{ tr['group'] }}</th>
-            <th>{{ tr['date'] }}</th>
-            <th>{{ tr['sender'] }}</th>
-            <th>{{ tr['text'] }}</th>
-            <th>{{ tr['media'] }}</th>
-        </tr>
+    <tr>
+        <th>{{ tr['group'] }}</th>
+        <th>{{ tr['date'] }}</th>
+        <th>{{ tr['sender'] }}</th>
+        <th>{{ tr['text'] }}</th>
+        <th>{{ tr['media'] }}</th>
+    </tr>
     </thead>
     <tbody>
-        {% for row in messages %}
-        <tr>
-            <td>{{ row.group_name }}</td>
-            <td>{{ row.date }}</td>
-            <td>{{ row.sender_id }}</td>
-            <td>{{ row.text }}</td>
-            <td>
-                {% if row.media_path %}
-                    {% for path in row.media_path.split(',') %}
-                    <div style="margin-bottom: 8px;">
-                        <img src="{{ url_for('static', filename=path.replace('\\', '/')) }}" alt="image">
-                        <br>
-                        <a href="{{ url_for('static', filename=path.replace('\\', '/')) }}" download class="download-btn">{{ tr['download'] }}</a>
-                    </div>
-                    {% endfor %}
-                {% else %}
-                    -
-                {% endif %}
-            </td>
-        </tr>
-        {% endfor %}
+    {% for row in messages %}
+    <tr>
+        <td>{{ row.group_name }}</td>
+        <td>{{ row.date }}</td>
+        <td>{{ row.sender_id }}</td>
+        <td>{{ row.text }}</td>
+        <td>
+            {% if row.media_path %}
+            {% for path in row.media_path.split(',') %}
+            <div style="margin-bottom: 8px;">
+                <img src="{{ url_for('static', filename=path.replace('\\', '/')) }}" alt="image">
+                <br>
+                <a href="{{ url_for('static', filename=path.replace('\\', '/')) }}" download class="download-btn">{{
+                    tr['download'] }}</a>
+            </div>
+            {% endfor %}
+            {% else %}
+            -
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
     </tbody>
 </table>
 </body>
