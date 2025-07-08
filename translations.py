@@ -13,6 +13,9 @@ translations = {
         'download': '⬇ Скачать',
         'switch_to_en': 'En',
         'switch_to_ru': 'Ru',
+        'downloadCSV': '⬇ Скачать CSV',
+        'downloadExcel': '⬇ Скачать Excel',
+
     },
     'en': {
         'title': 'Messages from Telegram',
@@ -26,5 +29,8 @@ translations = {
         'download': '⬇ Download',
         'switch_to_en': 'En',
         'switch_to_ru': 'Ru',
+        'downloadCSV': '⬇ Download CSV',
+        'downloadExcel': '⬇ Download Excel',
+
     }
 }

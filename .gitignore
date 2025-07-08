@@ -1,0 +1,34 @@
+# Виртуальное окружение
+.venv/
+venv/
+ENV/
+env/
+
+# Файлы Python-компиляции
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Логи
+*.log
+
+# Базы данных
+*.sqlite3
+*.db
+
+# Конфиденциальные данные
+config.py
+
+# Картинки, медиафайлы
+static/media/
+images/
+
+# Настройки редакторов
+.vscode/
+.idea/
+
+# Кэш и временные файлы
+*.swp
+*.tmp
+.DS_Store
+Thumbs.db
