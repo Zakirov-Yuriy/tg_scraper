@@ -1,15 +1,3 @@
-## 🛠️ Используемые технологии
-
-| Frontend | Backend | Database | Infra / Tooling |
-|---|---|---|---|
-| ![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white) | ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white) ![Fastify](https://img.shields.io/badge/Fastify-000000?logo=fastify&logoColor=white) ![Prisma](https://img.shields.io/badge/Prisma-2D3748?logo=prisma&logoColor=white) | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white) | ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white) ![Vite](https://img.shields.io/badge/Vite_Config-646CFF?logo=vite&logoColor=white) ![TSConfig](https://img.shields.io/badge/tsconfig-3178C6?logo=typescript&logoColor=white) ![Tailwind Config](https://img.shields.io/badge/tailwind.config.js-06B6D4?logo=tailwindcss&logoColor=white) |
-
-## 🧩 Tech Stack (visual)
-
-![Tech Stack](https://github-readme-tech-stack.vercel.app/api/cards?theme=dark&lineCount=2&line1=react,typescript,vite,tailwindcss&line2=node.js,fastify,prisma,postgresql,docker)
-
-
-
 # Telegram Scraper + Admin Panel
 
 A Telegram group message scraper that saves data to a database and displays it in a web interface.
